@@ -1,10 +1,10 @@
-﻿<#
+<#
 	.DESCRIPTION
 		This script sets UEM settings with PowerShell.
 		When executed under SYSTEM authority a scheduled task is created to ensure recurring or once script execution on each user logon.
 	.NOTES
         BASE Author: Nicola Suter, nicolonsky tech: https://tech.nicolonsky.ch
-        Modified to UEM by Insign.it
+        Modified to UEM by: Naures Shakarchi Insign.it
 #>
 
 [CmdletBinding()]
@@ -90,6 +90,7 @@ $hexComplex = $ValueComplex.Split(',') | % { "0x$_"}
 IF(!(Test-Path $registryPath))
   {
     New-Item -Path $registryPath -Force | Out-Null
+    New-ItemProperty -Path $registryPath -name NewTheme -PropertyType string
     New-ItemProperty -Path $registryPath -Name $name1simple -Value ([byte[]]$hexsimple) -PropertyType Binary -Force
     New-ItemProperty -Path $registryPath -Name $name2simple -Value ([byte[]]$hexsimple) -PropertyType Binary -Force
     New-ItemProperty -Path $registryPath -Name $name3simple -Value ([byte[]]$hexsimple) -PropertyType Binary -Force
@@ -99,6 +100,7 @@ IF(!(Test-Path $registryPath))
     }
 
 ELSE {
+    Set-ItemProperty -Path $registryPath -name NewTheme -value $null
     Set-ItemProperty -Path $registryPath -Name $name1simple -Value ([byte[]]$hexsimple) -Force
     Set-ItemProperty -Path $registryPath -Name $name2simple -Value ([byte[]]$hexsimple) -Force
     Set-ItemProperty -Path $registryPath -Name $name3simple -Value ([byte[]]$hexsimple) -Force

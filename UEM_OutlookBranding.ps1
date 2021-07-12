@@ -4,7 +4,7 @@
 		When executed under SYSTEM authority a scheduled task is created to ensure recurring or once script execution on each user logon.
 	.NOTES
         BASE Author: Nicola Suter, nicolonsky tech: https://tech.nicolonsky.ch
-        Modified to UEM by: Naures Shakarchi Insign.it
+        Modified to UEM by: Joey Verlinden - Insign.it
 #>
 
 [CmdletBinding()]

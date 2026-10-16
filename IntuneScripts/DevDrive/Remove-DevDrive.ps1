@@ -1,3 +1,4 @@
+#Source: https://gist.github.com/lawndoc/ea03e2ee0f4d64162669d1b5e997ec77
 $DrivePath="C:\ProgramData\Custom Dev Drive"
 $FileName = "${env:LOCALAPPDATA}\Temp\diskpart_devdrive.txt"
 Write-Output "select vdisk file='${DrivePath}\drive.vhdx'" | Out-File -Encoding ascii -FilePath $FileName
